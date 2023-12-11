@@ -44,7 +44,6 @@ if __name__=='__main__':
 	parser = argparse.ArgumentParser(description='Script para crear VM')
 	parser.add_argument('param1', type=str, help='Nombre del OVS')
 	parser.add_argument('param2', type=str, help='ID de la Vlan')
-	#parser.add_argument('param3', type=str, help='El puerto VNC:')
 	parser.add_argument('param3', type=str, help='El path de la imagen')
 	parser.add_argument('param4', type=str, help='Size Ram de la VM')
 	parser.add_argument('param5', type=str, help='Dirección MAC')
@@ -61,16 +60,16 @@ if __name__=='__main__':
 	port_vnc=find_available_portVNC()
 
     #Creamos el TAP
-	#createTap(port_vnc,id_Vlan)
+	createTap(port_vnc,id_Vlan)
 
-        #Creamos la VM
-	#createVM(port_vnc,id_Vlan,path_imagen,size_ram,dir_mac)
+    #Creamos la VM
+	createVM(port_vnc,id_Vlan,path_imagen,size_ram,dir_mac)
 
-        #Añadimos TAP a la OVS
-	#runCommand(f"ovs-vsctl add-port {name_OVS} slice{id_Vlan}-tap{port_vnc} tag={id_Vlan}")
+    #Añadimos TAP a la OVS
+	runCommand(f"ovs-vsctl add-port {name_OVS} slice{id_Vlan}-tap{port_vnc} tag={id_Vlan}")
 
-        #Encendemos el TAP
-	#runCommand(f"ip link set dev slice{id_Vlan}-tap{port_vnc} up")
+    #Encendemos el TAP
+	runCommand(f"ip link set dev slice{id_Vlan}-tap{port_vnc} up")
 
 	print(port_vnc)
 
