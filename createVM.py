@@ -54,9 +54,9 @@ if __name__=='__main__':
 	name_OVS= args.param1
 	id_Vlan= args.param2
 	#port_vnc=  args.param3
-	path_imagen=  args.param4
-	size_ram=  args.param5
-	dir_mac= args.param6
+	path_imagen=  args.param3
+	size_ram=  args.param4
+	dir_mac= args.param5
 
 	port_vnc=find_available_portVNC()
 
