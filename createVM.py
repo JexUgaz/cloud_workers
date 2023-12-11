@@ -43,6 +43,7 @@ if __name__=='__main__':
 
         #Encendemos el TAP
 	runCommand(f"ip link set dev slice{id_Vlan}-tap{port_vnc} up")
+	
 
 
 	
