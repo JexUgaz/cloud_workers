@@ -1,6 +1,8 @@
 import os
 import subprocess,argparse,random
 
+passHeadnode='ubuntu'
+
 def runCommand(command):
 	print(command)
 	result=subprocess.run("sudo "+command,shell=True,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -26,7 +28,7 @@ def set_path_image(path_imagen):
 	# Verificar si el archivo ya existe
 	if not os.path.exists(path_absoluto):
 		#Se crea previamente las llaves duplicadas para acceso directo
-		runCommand(f"scp -o StrictHostKeyChecking=no ubuntu@10.0.0.1:{path_absoluto} {path_absoluto}")
+		subprocess.run(f"sshpass -p '{passHeadnode}' sudo scp -o StrictHostKeyChecking=no ubuntu@10.0.0.1:{path_absoluto} {path_absoluto}",shell=True,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
 if __name__=='__main__':
 	parser = argparse.ArgumentParser(description='Script para crear VM')
