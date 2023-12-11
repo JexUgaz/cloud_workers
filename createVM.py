@@ -19,7 +19,6 @@ def runCommand(command):
 
 def createTap(port,idVlan):
 	runCommand(f"ip tuntap add mode tap name slice{idVlan}-tap{port}")
-	print(f"TAP slice{idVlan}-tap{port}: creado exitosamente!!")
 
 def createVM(port,idVlan,path_imagen,size_ram,dir_mac):
 	set_path_image(path_imagen)
